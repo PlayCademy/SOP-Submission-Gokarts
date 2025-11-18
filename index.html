@@ -1,40 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Embedded Airtable (Responsive)</title>
-  <style>
-    /* Container untuk membuat iframe responsive */
-    .responsive-iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9; /* modern browsers */
-      max-height: 90vh;     /* tidak lebih dari tinggi layar */
-      border: 1px solid #ccc;
-      background: transparent;
-    }
-    .responsive-iframe iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>PlayCademy</title>
 
-    /* kecilkan rasio untuk layar sangat sempit (opsional) */
-    @media (max-width: 420px) {
-      .responsive-iframe { aspect-ratio: 4 / 5; }
-    }
-  </style>
-</head>
-<body>
-  <div class="responsive-iframe" aria-label="Airtable embed">
-    <iframe
-      src="https://airtable.com/embed/appEAbBrWStBQKDiu/shr3gcH9lzTULfNEq"
-      title="Airtable"
-      loading="lazy"
-      allowfullscreen
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-  </div>
-</body>
+    <style>
+      /* --- Reset dan layout dasar --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f5f7fa;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      header {
+        background-color: #1f2937;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        padding: 0;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      footer {
+        text-align: center;
+        padding: 0.8rem;
+        font-size: 0.85rem;
+        color: #555;
+        background: #f9fafb;
+      }
+
+      /* --- Responsif untuk HP & Tablet --- */
+      @media (max-width: 768px) {
+        header {
+          font-size: 1.1rem;
+          padding: 0.8rem;
+        }
+
+        footer {
+          font-size: 0.8rem;
+          padding: 0.6rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>PlayCademy</header>
+
+    <main>
+      <iframe
+        src="https://hidayatplaytopia.retool.com/embedded/public/cadbdaa3-05e4-4028-86c6-f70d43616697"
+        title="PlayCademy Retool App"
+        allowfullscreen
+      ></iframe>
+    </main>
+
+    <footer>© 2025 Customer Experience & Talent Development (Amazone & Playtopia Group)</footer>
+  </body>
 </html>
