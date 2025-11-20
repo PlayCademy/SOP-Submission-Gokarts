@@ -1,1 +1,109 @@
-<iframe class="airtable-embed" src="https://airtable.com/embed/appEAbBrWStBQKDiu/shr3gcH9lzTULfNEq" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Playtopia Room Booking</title>
+
+<style>
+    body {
+        font-family: Helvetica, sans-serif;
+        margin: 0;
+        background: #f5f7fa;
+    }
+
+    /* Tabs */
+    .tabs {
+        display: flex;
+        background: #0056d2;
+        padding: 10px 15px;
+        gap: 15px;
+        overflow-x: auto;
+    }
+
+    .tab {
+        color: white;
+        padding: 10px 16px;
+        white-space: nowrap;
+        cursor: pointer;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.15);
+        transition: 0.2s;
+    }
+
+    .tab.active {
+        background: white;
+        color: #0056d2;
+        font-weight: bold;
+    }
+
+    /* Responsive iframe height */
+    iframe {
+        width: 100%;
+        border: none;
+        /* Default height laptop */
+        height: calc(100vh - 70px);
+    }
+
+    /* Responsif untuk HP */
+    @media (max-width: 768px) {
+        iframe {
+            height: calc(100vh - 90px);
+        }
+        .tabs {
+            gap: 8px;
+        }
+        .tab {
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+    }
+
+    /* Responsif untuk HP kecil */
+    @media (max-width: 480px) {
+        iframe {
+            height: calc(100vh - 100px);
+        }
+        .tab {
+            font-size: 13px;
+            padding: 7px 10px;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<!-- TOP TABS -->
+<div class="tabs">
+    <div class="tab active" data-src="https://airtable.com/embed/appYHmg82gban8DxQ/shrLQPSAzee3X8CKR">
+        Booking Calendar
+    </div>
+    <div class="tab" data-src="https://airtable.com/embed/appYHmg82gban8DxQ/shrx6K82Z9phEN24h">
+        Rooms
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<iframe id="airtableFrame" 
+        src="https://airtable.com/embed/appYHmg82gban8DxQ/shrLQPSAzee3X8CKR">
+</iframe>
+
+<script>
+    const tabs = document.querySelectorAll(".tab");
+    const iframe = document.getElementById("airtableFrame");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            iframe.src = tab.dataset.src;
+
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            window.scrollTo(0, 0);
+        });
+    });
+</script>
+
+</body>
+</html>
